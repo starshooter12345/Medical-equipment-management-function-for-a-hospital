@@ -14,6 +14,7 @@ export default class CreatePost extends Component {
       employeeNIC: '',
     };
   }
+  //added a comment for handleInputChange
   handleInputChange = (e) => {
     const { name, value } = e.target;
     this.setState({
