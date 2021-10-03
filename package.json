@@ -17,6 +17,7 @@
     "concurrently": "^6.2.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "informed": "^3.34.0",
     "jspdf": "^2.4.0",
     "jspdf-autotable": "^3.5.20",
     "mongoose": "^5.13.2",

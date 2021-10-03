@@ -4,6 +4,7 @@ import axios from 'axios';
 export default class CreatePost extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       equipmentName: '',
       supplyCompany: '',
@@ -13,8 +14,15 @@ export default class CreatePost extends Component {
       description: '',
       employeeNIC: '',
     };
+    this.ref1 = React.createRef();
+    this.ref2 = React.createRef();
+    this.ref3 = React.createRef();
+    this.ref4 = React.createRef();
+    this.ref5 = React.createRef();
+    this.ref6 = React.createRef();
+    this.ref7 = React.createRef();
   }
-  //added a comment for handleInputChange
+
   handleInputChange = (e) => {
     const { name, value } = e.target;
     this.setState({
@@ -22,6 +30,19 @@ export default class CreatePost extends Component {
       [name]: value,
     });
   };
+  //added for demo
+  onequinameClick = () => {
+    this.ref1.current.value = 'Ergonomic mattress';
+    this.ref2.current.value = 'Farah medicals';
+    // this.ref7.current.value = 7;
+
+    this.setState({
+      equipmentName: this.ref1.current.value,
+      supplyCompany: this.ref2.current.value,
+      //employeeNIC: this.ref7.current.value,
+    });
+  };
+
   //validate function is the newly added function for validation of equipment name
   validate = () => {
     let isError = false;
@@ -110,6 +131,7 @@ export default class CreatePost extends Component {
       }
     }
   };
+
   render() {
     return (
       <div className='col-md-8 mt-4 mx-auto'>
@@ -120,11 +142,14 @@ export default class CreatePost extends Component {
             <input
               type='text'
               className='form-control'
+              ref={this.ref1}
               name='equipmentName'
               placeholder='Enter equipment name'
               value={this.state.equipmentName}
               onChange={this.handleInputChange}
             />
+            <br></br>
+            <button onClick={this.onequinameClick}>Demo!</button>
           </div>
 
           <div className='form-group' style={{ marginBottom: '15px' }}>
@@ -132,6 +157,7 @@ export default class CreatePost extends Component {
             <input
               type='text'
               className='form-control'
+              ref={this.ref2}
               name='supplyCompany'
               placeholder='Enter supply company'
               value={this.state.supplyCompany}
@@ -143,6 +169,7 @@ export default class CreatePost extends Component {
             <input
               type='number'
               className='form-control'
+              ref={this.ref3}
               name='stock'
               placeholder='Enter stock'
               value={this.state.stock}
@@ -154,6 +181,7 @@ export default class CreatePost extends Component {
             <input
               type='number'
               className='form-control'
+              ref={this.ref4}
               name='priceIndollars'
               placeholder='Enter price in dollars'
               value={this.state.priceIndollars}
@@ -165,6 +193,7 @@ export default class CreatePost extends Component {
             <input
               type='number'
               className='form-control'
+              ref={this.ref5}
               name='ageInyears'
               placeholder='Enter age in years'
               value={this.state.ageInyears}
@@ -176,6 +205,7 @@ export default class CreatePost extends Component {
             <input
               type='text'
               className='form-control'
+              ref={this.ref6}
               name='description'
               placeholder='Enter description'
               value={this.state.description}
@@ -187,6 +217,7 @@ export default class CreatePost extends Component {
             <input
               type='text'
               className='form-control'
+              ref={this.ref7}
               name='employeeNIC'
               //added for NIC validation
               //added  second comment
@@ -197,6 +228,7 @@ export default class CreatePost extends Component {
               onChange={this.handleInputChange}
             />
           </div>
+          <br></br>
           <button
             className='btn btn-success'
             type='submit'
