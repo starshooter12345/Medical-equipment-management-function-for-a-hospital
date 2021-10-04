@@ -14,13 +14,6 @@ export default class CreatePost extends Component {
       description: '',
       employeeNIC: '',
     };
-    this.ref1 = React.createRef();
-    this.ref2 = React.createRef();
-    this.ref3 = React.createRef();
-    this.ref4 = React.createRef();
-    this.ref5 = React.createRef();
-    this.ref6 = React.createRef();
-    this.ref7 = React.createRef();
   }
 
   handleInputChange = (e) => {
@@ -28,18 +21,6 @@ export default class CreatePost extends Component {
     this.setState({
       ...this.state,
       [name]: value,
-    });
-  };
-  //added for demo
-  onequinameClick = () => {
-    this.ref1.current.value = 'Ergonomic mattress';
-    this.ref2.current.value = 'Farah medicals';
-    // this.ref7.current.value = 7;
-
-    this.setState({
-      equipmentName: this.ref1.current.value,
-      supplyCompany: this.ref2.current.value,
-      //employeeNIC: this.ref7.current.value,
     });
   };
 
@@ -55,20 +36,7 @@ export default class CreatePost extends Component {
     });
     return isError;
   };
-  //validate2 is the newly added validation function for employeeNIC
-  /* validate2 = () => {
-    let isError2 = false;
-    if (
-      !this.state.employeeNIC.includes('v') &&
-      !this.state.employeeNIC.includes('V')
-    ) {
-      isError2 = true;
-    }
-    this.setState({
-      ...this.state,
-    });
-    return isError2;
-  };*/
+
   validate3 = () => {
     var z = this.state.employeeNIC;
     let isError2 = false;
@@ -148,8 +116,6 @@ export default class CreatePost extends Component {
               value={this.state.equipmentName}
               onChange={this.handleInputChange}
             />
-            <br></br>
-            <button onClick={this.onequinameClick}>Demo!</button>
           </div>
 
           <div className='form-group' style={{ marginBottom: '15px' }}>
@@ -239,6 +205,23 @@ export default class CreatePost extends Component {
             &nbsp; Save
           </button>
         </form>
+        <br></br>
+        <button
+          className='primary'
+          onClick={(e) => {
+            this.setState({
+              equipmentName: 'Ele',
+              supplyCompany: 'Hansika Medicals',
+              stock: 5,
+              priceIndollars: 56,
+              ageInyears: 67,
+              description: 'good',
+              employeeNIC: 'sdadav',
+            });
+          }}
+        >
+          Demo
+        </button>
       </div>
     );
   }
